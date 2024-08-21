@@ -10,9 +10,9 @@ public class insertExample {
 		try (Session session = HibernateUtils.getSessionFactory().openSession();) {
             session.beginTransaction();
             Account account = new Account();
-            account.setAccount_ID("1");
-            account.setUsername("letrungphong");
-            account.setPassword("phong123");
+            account.setAccount_ID("2");
+            account.setUsername("nguyenminhphuc");
+            account.setPassword("phuc123");
             session.persist(account);
         //  session.save(account);
             session.getTransaction().commit();

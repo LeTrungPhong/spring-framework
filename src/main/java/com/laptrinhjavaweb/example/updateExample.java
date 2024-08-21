@@ -20,12 +20,15 @@ public class updateExample {
 //			account.setUsername("letrungphong");
 //			session.update(account);
 			 
-			System.out.println("1");
 			MutationQuery query = session.createMutationQuery("update Account set username = :username where account_ID = :account_ID");
 			query.setParameter("username", "nguyenthanhtrung");
 			query.setParameter("account_ID","1");
 			query.executeUpdate();
-			System.out.println("2");
+			
+//			Query query = session.createQuery("update Account set username = :username where account_ID = :account_ID");
+//			query.setParameter("username", "nguyenthanhtrung");
+//			query.setParameter("account_ID","1");
+//			query.executeUpdate();
 			
 			session.getTransaction().commit();
 			session.close();

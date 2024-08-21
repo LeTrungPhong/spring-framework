@@ -6,21 +6,26 @@ import jakarta.persistence.*;
 public class Customer {
 	
 	@Id
+//  @GeneratedValue (strategy=GenerationType.IDENTITY)
+//  @GeneratedValue (strategy=GenerationType.AUTO,generator="empid_generator")
+//  @SequenceGenerator (name="empid_generator",initialValue=1,allocationSize=1)
 	private String customer_ID;
 	
 	@Column
 	private String fullname;
 	
-	@Column
-	private String account_ID;
+	@OneToOne
+	private Account account;
 	
-	public Customer() {};
-	
-	public Customer(String customer_ID, String fullname, String account_ID) {
-		this.setCustomer_ID(customer_ID);
-		this.setFullname(fullname);
-		this.setAccount_ID(account_ID);
+	public Account getAccount() {
+		return account;
 	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Customer() {};
 
 	public String getCustomer_ID() {
 		return customer_ID;
@@ -37,13 +42,6 @@ public class Customer {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	
-	public String getAccount_ID() {
-		return account_ID;
-	}
-	
-	public void setAccount_ID(String account_ID) {
-		this.account_ID = account_ID;
-	}
+
 	
 }
